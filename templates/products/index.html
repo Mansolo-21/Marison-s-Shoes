@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyShoes</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="hero">
+
+    <div class="glow"></div>
+
+    <div class="card" id="card">
+
+        <div class="logo">MYSHOES</div>
+
+        <h1>Step Into Luxury</h1>
+
+        <p>
+            Premium sneakers, streetwear & fashion curated for style-driven individuals.
+        </p>
+
+       <a href="{% url 'login' %}" class="btn btn-outline">
+    Login
+</a>
+
+<a href="{% url 'signup' %}" class="btn btn-gold">
+    Create Account
+</a>
+
+        <div class="mini-text">
+            Black • Gold • White • Premium Fashion Store
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

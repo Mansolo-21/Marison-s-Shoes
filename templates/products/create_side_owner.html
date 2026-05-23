@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Create Side Owner</title>
+
+<link rel="stylesheet"
+      href="{% static 'css/create_side_owner.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="card">
+
+        <div class="top">
+
+            <h1>
+                Create Side Owner
+            </h1>
+
+            <p>
+                Give trusted staff dashboard access.
+            </p>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="john_doe"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="john@gmail.com"
+                    required
+                >
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="********"
+                    required
+                >
+
+            </div>
+
+            <button type="submit">
+
+                <i class="fas fa-user-plus"></i>
+
+                Create Side Owner
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

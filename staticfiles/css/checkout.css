@@ -1,0 +1,144 @@
+.checkout-page{
+    width:100%;
+    min-height:100vh;
+    background:#f7f7f7;
+    padding:60px 20px;
+}
+
+.checkout-wrapper{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+    gap:40px;
+}
+
+.checkout-form-card,
+.checkout-summary-card{
+    background:white;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.checkout-form-card h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.checkout-subtitle{
+    color:#777;
+    margin-bottom:35px;
+}
+
+.input-group{
+    margin-bottom:25px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#222;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    font-size:16px;
+    transition:0.3s;
+    background:#fafafa;
+}
+
+.input-group textarea{
+    min-height:120px;
+    resize:none;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+    outline:none;
+    border-color:#d4af37;
+    background:white;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:14px;
+    background:#d4af37;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.checkout-btn:hover{
+    background:#b89327;
+    transform:translateY(-2px);
+}
+
+.mpesa-box{
+    background:#faf7ea;
+    border:2px solid #d4af37;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.mpesa-box h3{
+    margin-bottom:10px;
+}
+
+.pay-text{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.mpesa-box h1{
+    font-size:42px;
+    color:#d4af37;
+}
+
+.summary-box h3{
+    margin-bottom:25px;
+}
+
+.summary-item{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:18px;
+    color:#444;
+}
+
+.summary-total{
+    border-top:1px solid #ddd;
+    margin-top:25px;
+    padding-top:25px;
+}
+
+.summary-total h2{
+    margin-top:10px;
+    color:#d4af37;
+    font-size:34px;
+}
+
+.payment-note{
+    margin-top:30px;
+    color:#777;
+    line-height:1.7;
+}
+
+@media(max-width:900px){
+
+    .checkout-wrapper{
+        grid-template-columns:1fr;
+    }
+
+}

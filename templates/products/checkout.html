@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+<div class="checkout-page">
+
+    <div class="checkout-wrapper">
+
+        <!-- LEFT -->
+        <div class="checkout-form-card">
+
+            <h1>Secure Checkout</h1>
+            <p class="checkout-subtitle">
+                Complete your order by filling your details below.
+            </p>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        name="full_name"
+                        placeholder="John Doe"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input
+                        type="text"
+                        name="phone_number"
+                        placeholder="07XXXXXXXX"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Delivery Address</label>
+                    <textarea
+                        name="address"
+                        placeholder="Enter your delivery address"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>M-Pesa Transaction Code</label>
+                    <input
+                        type="text"
+                        name="mpesa_code"
+                        placeholder="QHG7X2L9P"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="checkout-btn">
+                    Confirm Order
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="checkout-summary-card">
+
+            <div class="mpesa-box">
+
+                <h3>M-Pesa Payment</h3>
+
+                <p class="pay-text">
+                    Send payment to:
+                </p>
+
+                <h1>0715259237</h1>
+
+            </div>
+
+            <div class="summary-box">
+
+                <h3>Order Summary</h3>
+
+                {% for item in cart_items %}
+                <div class="summary-item">
+                    <span>
+                        {{ item.product.name }} x{{ item.quantity }}
+                    </span>
+
+                    <span>
+                        Ksh {{ item.total_price }}
+                    </span>
+                </div>
+                {% endfor %}
+
+                <div class="summary-total">
+
+                    <span>Total Amount</span>
+
+                    <h2>Ksh {{ total }}</h2>
+
+                </div>
+
+            </div>
+
+            <p class="payment-note">
+                After sending payment, enter the transaction code
+                above to complete your order.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

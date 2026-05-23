@@ -1,0 +1,316 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+/* subtle animated background */
+body::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(#d4af37 0%,transparent 70%);
+    opacity:.08;
+    top:-250px;
+    right:-150px;
+    animation:float 8s ease-in-out infinite;
+}
+
+body::after{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(#d4af37 0%,transparent 70%);
+    opacity:.05;
+    bottom:-250px;
+    left:-150px;
+    animation:float2 10s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(40px);
+    }
+}
+
+@keyframes float2{
+    50%{
+        transform:translateY(-40px);
+    }
+}
+
+/* CARD */
+
+.login-card{
+    background:#0f0f0f;
+    border:1px solid rgba(212,175,55,.15);
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25),
+    0 0 35px rgba(212,175,55,.18);
+
+    animation:fadeIn .8s ease;
+    position:relative;
+    z-index:2;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* image */
+
+.side-image{
+    overflow:hidden;
+}
+
+.side-image img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    transition:1s;
+}
+
+.side-image:hover img{
+    transform:scale(1.06);
+}
+
+/* FORM */
+
+.form-section{
+    padding:55px;
+}
+
+.form-title{
+    color:#111;
+    font-weight:800;
+    font-size:2rem;
+}
+
+.form-subtitle{
+    color:#666;
+    font-size:14px;
+}
+
+.form-title span{
+    color:#d4af37;
+}
+
+/* INPUTS */
+
+.input-box{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-box input{
+    width:100%;
+    height:58px;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:15px;
+
+    color:black;
+
+    padding:20px 50px 0 50px;
+
+    outline:none;
+
+    transition:.4s;
+}
+.input-box input:focus{
+    border-color:#d4af37;
+
+    box-shadow:
+    0 0 15px rgba(212,175,55,.2);
+}
+
+.input-box label{
+    position:absolute;
+    top:18px;
+    left:50px;
+    .form-title{
+    color:#111;
+}
+    transition:.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown)+label{
+
+    top:8px;
+    font-size:11px;
+
+    color:#d4af37;
+}
+
+/* ICONS */
+
+.left-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#d4af37;
+}
+
+.toggle-password{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#999;
+}
+
+/* checkbox */
+
+.custom-checkbox{
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+/* LOGIN BUTTON */
+
+.btn-login{
+
+height:55px;
+border:1px solid rgba(212,175,55,.15);
+border-radius:15px;
+
+background:
+linear-gradient(
+135deg,
+#d4af37,
+#f6d365
+);
+
+color:black;
+
+font-weight:800;
+letter-spacing:1px;
+
+transition:.4s;
+}
+
+.btn-login:hover{
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 12px 30px rgba(212,175,55,.35);
+
+}
+
+/* GOOGLE */
+
+.btn-google{
+
+height:55px;
+
+background:white;
+
+border:1px solid #ddd;
+
+color:black;
+
+border-radius:15px;
+
+font-weight:700;
+
+transition:.4s;
+
+}
+
+.btn-google:hover{
+
+background:#fafafa;
+
+border-color:#d4af37;
+
+color:#d4af37;
+
+}
+/* LINKS */
+
+.auth-link{
+
+color:#d4af37;
+font-weight:700;
+transition:.3s;
+
+}
+
+.auth-link:hover{
+
+color:white;
+text-decoration:none;
+
+}
+
+/* alert */
+
+.alert{
+
+background:#2b1515;
+border:1px solid rgba(212,175,55,.15);
+color:#ffb3b3;
+
+}
+
+/* mobile */
+
+@media(max-width:991px){
+
+.side-image{
+display:none;
+}
+
+.form-section{
+padding:35px;
+}
+
+}.role-select{
+
+    width:100%;
+    height:55px;
+
+    border-radius:15px;
+
+   background:white;
+color:black;
+border:1px solid #ddd;
+
+    padding-left:50px;
+
+    transition:.3s;
+    outline:none;
+
+}
+
+.role-select:focus{
+
+    border-color:#d4af37;
+
+    box-shadow:
+    0 0 15px rgba(212,175,55,.2);
+
+}
+
+.role-select option{
+    background:#181818;
+}
