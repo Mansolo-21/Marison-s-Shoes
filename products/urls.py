@@ -16,4 +16,5 @@ urlpatterns = [
     views.create_side_owner,
     name='create_side_owner'
 ),
+path('orders',views.orders,name='orders')
 ]

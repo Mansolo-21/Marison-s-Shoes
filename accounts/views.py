@@ -44,7 +44,7 @@ def signup_view(request):
 
         return redirect('shop')
 
-    return render(request, 'accounts/signup.html')
+    return render(request, 'account/signup.html')
 
 def login_view(request):
     if request.method == "POST":
@@ -60,6 +60,11 @@ def login_view(request):
         if user is not None:
             login(request, user)
             return redirect("shop")
+        else:
+            messages.error(
+                request,
+                "Incorrect username or password"
+            )
 
     return render(request, "account/login.html")
 

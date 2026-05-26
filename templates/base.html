@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}MyShoes{% endblock %}</title>
+    <title>{% block title %}Marison's Wears Shop{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/shop.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" href="{% static 'css/orders.css' %}">
@@ -182,12 +182,12 @@
     <div class="nav-left">
 
         <a href="/" class="logo">
-            My<span>Shoes</span>
+            Marison's<span>Wears</span>
         </a>
 
         <div class="nav-links">
-            <a href="/shop/">Shop</a>
-            <a href="/cart/">Cart</a>
+            <a href="{% url 'shop'%}">Shop</a>
+            <a href="{% url 'cart'%}">Cart</a>
             <a href="{% url 'orders' %}">Orders</a>
         </div>
 
