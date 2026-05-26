@@ -197,3 +197,9 @@ LOGIN_REDIRECT_URL = '/shop/'
 LOGOUT_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-0821a.up.railway.app",
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
