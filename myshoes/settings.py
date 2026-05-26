@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 from pathlib import Path
-import jwt
 import os
 import cloudinary
 from dotenv import load_dotenv
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +30,7 @@ SECRET_KEY = 'django-insecure-1!5j4_hzjqt6$-&+g)!aepa^6mxcf#^fxiwc_^m!0s1ht@=&vq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".railway.app"]
 
 
 # Application definition
@@ -94,10 +95,9 @@ WSGI_APPLICATION = 'myshoes.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        "postgresql://postgres.jibwrsohaqmxiqwxwimq:TvW6P7g+Mni$e.f@aws-0-eu-west-3.pooler.supabase.com:6543/postgres?"
+    )
 }
 
 
@@ -175,7 +175,7 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
 
