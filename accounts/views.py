@@ -61,10 +61,11 @@ def login_view(request):
         if user is not None:
             login(request, user)
             
-            if user.is_owner(user):
+            if user.profile.is_owner or user.profile.is_side_owner:
                 return redirect("owner_dashboard")
 
             return redirect("shop")
+                
         else:
             messages.error(
                 request,
@@ -97,7 +98,7 @@ def redirect_user(request):
         return redirect('owner_dashboard')
 
     else:
-        return redirect('products/shop')
+        return redirect('shop')
 
 @user_passes_test(is_owner)
 def promote_user(request, id):
