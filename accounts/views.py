@@ -4,15 +4,17 @@ from django.contrib import messages
 from .models import User
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import (
-    login_required,
     user_passes_test
 )
 
-def is_main_owner(user):
+def is_owner(user):
 
     return (
         user.is_authenticated and
-        user.profile.role == 'owner'
+        user.profile.role in [
+            'owner',
+            'side_owner'
+        ]
     )
 
 def signup_view(request):
@@ -59,6 +61,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
+            
+            if user.is_owner:
+                return redirect("owner_dashboard")
+
             return redirect("shop")
         else:
             messages.error(
@@ -88,13 +94,13 @@ def redirect_user(request):
     if role=="owner":
         return redirect('owner_dashboard')
 
-    elif role=="staff":
+    elif role=="side_owner":
         return redirect('owner_dashboard')
 
     else:
         return redirect('products/shop')
 
-@user_passes_test(is_main_owner)
+@user_passes_test(is_owner)
 def promote_user(request, id):
 
     if request.user.profile.role!="owner":
