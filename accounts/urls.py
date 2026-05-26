@@ -22,6 +22,11 @@ urlpatterns = [
 'promote/<int:id>/',
 views.promote_user,
 name='promote_user'
-)
+),
+path(
+    'create-side-owner/',
+    views.create_side_owner,
+    name='create_side_owner'
+),
 
 ]

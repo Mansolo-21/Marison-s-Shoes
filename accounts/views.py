@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import User
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import (
     user_passes_test
 )
@@ -62,7 +61,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             
-            if user.is_owner:
+            if user.is_owner(user):
                 return redirect("owner_dashboard")
 
             return redirect("shop")
@@ -112,3 +111,30 @@ def promote_user(request, id):
     user.profile.save()
 
     return redirect('products/owner_dashboard')
+
+@user_passes_test(is_owner)
+def create_side_owner(request):
+
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        # CREATE USER
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password
+        )
+
+        # UPDATE ROLE
+        user.profile.role = "side_owner"
+        user.profile.save()
+
+        return redirect("owner_dashboard")
+
+    return render(
+        request,
+        "products/create_side_owner.html"
+    )

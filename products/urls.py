@@ -11,10 +11,5 @@ urlpatterns = [
     path('cart/update/<int:item_id>/', views.update_cart, name='update_cart'),
     path('owner/add-product/', views.add_product, name='add_product'),
     path('checkout/', views.checkout, name='checkout'),
-    path(
-    'create-side-owner/',
-    views.create_side_owner,
-    name='create_side_owner'
-),
-path('orders',views.orders,name='orders')
+    path('orders',views.orders,name='orders')
 ]

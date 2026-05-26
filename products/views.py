@@ -179,29 +179,3 @@ def orders(request):
     })
 
 
-@user_passes_test(is_owner)
-def create_side_owner(request):
-
-    if request.method == "POST":
-
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-
-        # CREATE USER
-        user = User.objects.create_user(
-            username=username,
-            email=email,
-            password=password
-        )
-
-        # UPDATE ROLE
-        user.profile.role = "side_owner"
-        user.profile.save()
-
-        return redirect("owner_dashboard")
-
-    return render(
-        request,
-        "products/create_side_owner.html"
-    )
