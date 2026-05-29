@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/shop.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" href="{% static 'css/orders.css' %}">
-
+   
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -186,6 +186,7 @@
         </a>
 
         <div class="nav-links">
+            <a href="{% url 'owner_dashboard' %}">Dashboard</a>
             <a href="{% url 'shop'%}">Shop</a>
             <a href="{% url 'cart'%}">Cart</a>
             <a href="{% url 'orders' %}">Orders</a>

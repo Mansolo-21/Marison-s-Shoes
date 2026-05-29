@@ -1,18 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
+{% block title %}Add Product{% endblock %}
 
-<head>
+{% block content %}
 
-<title>Add Product</title>
-
-<link rel="stylesheet"
-href="{% static 'css/dashboard.css' %}">
-
-</head>
-
-<body>
+<link rel="stylesheet" href="{% static 'css/add_product.css' %}">
 
 <div class="main-content">
 
@@ -80,5 +73,4 @@ href="{% static 'css/dashboard.css' %}">
 
 </div>
 
-</body>
-</html>
+{% endblock %}

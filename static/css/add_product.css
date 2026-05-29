@@ -13,82 +13,61 @@ body{
 
     min-height:100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     padding:40px;
 }
 
-/* CARD */
-.card{
+/* MAIN CONTENT */
+.main-content{
     width:100%;
-    max-width:650px;
+    max-width:700px;
+
+    margin:auto;
 
     background:#ffffff;
 
     border:1px solid #e5e7eb;
 
-    border-radius:28px;
+    border-radius:24px;
 
     padding:40px;
 
     box-shadow:
-    0 10px 40px rgba(0,0,0,.08);
+    0 10px 35px rgba(0,0,0,.08);
 }
 
-/* TOP SECTION */
-.top{
-    margin-bottom:35px;
-}
-
-.top h1{
+/* TITLE */
+.main-content h1{
     color:#111111;
 
     font-size:36px;
 
-    margin-bottom:10px;
+    margin-bottom:30px;
 
     font-weight:800;
 }
 
-.top p{
-    color:#6b7280;
+/* FORM */
+.product-form{
+    display:flex;
 
-    font-size:15px;
-}
+    flex-direction:column;
 
-/* FORM GROUP */
-.input-group{
-    margin-bottom:24px;
-}
-
-/* LABEL */
-.input-group label{
-    display:block;
-
-    color:#111111;
-
-    margin-bottom:10px;
-
-    font-weight:700;
-
-    font-size:15px;
+    gap:22px;
 }
 
 /* INPUTS */
-.input-group input,
-.input-group textarea,
-.input-group select{
+.product-form input,
+.product-form textarea,
+.product-form select{
     width:100%;
 
     padding:16px 18px;
 
-    background:#ffffff;
-
     border:1px solid #d1d5db;
 
     border-radius:14px;
+
+    background:#ffffff;
 
     color:#111111;
 
@@ -100,16 +79,16 @@ body{
 }
 
 /* TEXTAREA */
-.input-group textarea{
+.product-form textarea{
     min-height:140px;
 
     resize:vertical;
 }
 
-/* FOCUS EFFECT */
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus{
+/* FOCUS */
+.product-form input:focus,
+.product-form textarea:focus,
+.product-form select:focus{
     border-color:#d4af37;
 
     box-shadow:
@@ -117,14 +96,25 @@ body{
 }
 
 /* PLACEHOLDER */
-::placeholder{
+.product-form input::placeholder,
+.product-form textarea::placeholder{
     color:#9ca3af;
 }
 
-/* BUTTON */
-button{
-    width:100%;
+/* FILE INPUT */
+.product-form input[type="file"]{
+    padding:14px;
 
+    cursor:pointer;
+}
+
+/* SELECT */
+.product-form select{
+    cursor:pointer;
+}
+
+/* BUTTON */
+.product-form button{
     border:none;
 
     background:#d4af37;
@@ -145,7 +135,7 @@ button{
 }
 
 /* BUTTON HOVER */
-button:hover{
+.product-form button:hover{
     transform:translateY(-3px);
 
     background:#c49b1f;
@@ -154,32 +144,19 @@ button:hover{
     0 15px 30px rgba(212,175,55,.25);
 }
 
-/* IMAGE INPUT */
-input[type="file"]{
-    padding:14px;
-}
-
-/* PRICE + STOCK GRID */
-.row{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
-}
-
 /* MOBILE */
-@media(max-width:700px){
+@media(max-width:768px){
 
-    .card{
+    body{
+        padding:20px;
+    }
+
+    .main-content{
         padding:28px;
     }
 
-    .top h1{
+    .main-content h1{
         font-size:28px;
     }
 
-    .row{
-        grid-template-columns:1fr;
-    }
 }

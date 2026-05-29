@@ -9,7 +9,24 @@
     <h1 class="shop-title">
         <span>Shop</span>
     </h1>
+ {% if request.user.is_authenticated %}
 
+    {% if request.user.role == 'owner' or request.user.role == 'side_owner' %}
+
+    <div class="add-product-wrapper">
+
+        <a href="{% url 'add_product' %}" class="add-product-btn">
+
+            + Add Product
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+{% endif %}
+<p>{{ request.user.role }}</p>
     <div class="shop-grid">
 
         {% for product in products %}
