@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Your Cart{% endblock %}
+{% block title %}Cart{% endblock %}
 
 {% block content %}
 
@@ -10,8 +10,8 @@
 <div class="cart-container">
 
     <div class="cart-header">
-        <h1>Your Cart</h1>
-        <p>Review your selected items</p>
+        <h1>Cart</h1>
+        <p>Review your selected items before confirm purchase</p>
     </div>
 
     {% if cart_items %}
@@ -74,14 +74,12 @@
         <!-- TOTAL -->
 
         <div class="cart-summary">
-
             <h2>Total:
                 <span>Ksh{{ total }}</span>
             </h2>
-<a href="{% url 'checkout' %}" class="checkout-btn">
-    Proceed to Checkout
-</a>
-
+            <a href="{% url 'checkout' %}" class="checkout-btn">
+                Proceed to Checkout
+            </a>
         </div>
 
     {% else %}

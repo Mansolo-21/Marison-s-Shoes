@@ -1,83 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+Dashboard
+{% endblock %}
 
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Dashboard</title>
+{% block content %}
 
 <link rel="stylesheet"
       href="{% static 'css/dashboard.css' %}">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-</head>
-
-<body>
-
-<div class="dashboard">
-
-    <!-- SIDEBAR -->
-
-    <aside class="sidebar">
-
-        <div class="logo">
-            Marison's Wears
-        </div>
-
-        <ul>
-
-            <li class="active">
-                <a href="">
-                    <i class="fas fa-chart-line"></i>
-                    Dashboard
-                </a>
-            </li>
-
-            <li>
-                <a href="{% url 'add_product' %}">
-                    <i class="fas fa-box"></i>
-                    Products
-                </a>
-            </li>
-
-            <li>
-                <a href="{% url 'orders'%}">
-                    <i class="fas fa-shopping-cart"></i>
-                    Orders
-                </a>
-            </li>
-
-            {% if request.user.profile.role == "owner" %}
-
-            <li>
-                <a href="{% url 'create_side_owner' %}">
-                    <i class="fas fa-users"></i>
-                    Side Owners
-                </a>
-            </li>
-
-            {% endif %}
-
-            <li>
-                <a href="{% url 'account_logout' %}">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
-            </li>
-
-        </ul>
-
-    </aside>
-
-    <!-- MAIN -->
 
     <main class="main-content">
 
@@ -259,6 +190,4 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     </main>
 
 </div>
-
-</body>
-</html>
+{% endblock %}

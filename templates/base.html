@@ -191,6 +191,10 @@
             <a href="{% url 'shop'%}">Shop</a>
             <a href="{% url 'cart'%}">Cart</a>
             <a href="{% url 'orders' %}">Orders</a>
+             {% if request.user.profile.role == "owner" %}
+                <a href="{% url 'create_side_owner' %}">
+                    Side Owners</a> 
+            {% endif %}
         </div>
 
     </div>
