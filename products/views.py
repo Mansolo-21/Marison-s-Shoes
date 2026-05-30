@@ -179,3 +179,15 @@ def orders(request):
     })
 
 
+@user_passes_test(is_owner)
+def owner_orders(request):
+
+    orders = Order.objects.all().order_by('-id')
+
+    return render(
+        request,
+        'products/owner_orders.html',
+        {
+            'orders': orders
+        }
+    )

@@ -187,14 +187,25 @@
         </a>
 
         <div class="nav-links">
+             {% if request.user.profile.role == "owner" %}
             <a href="{% url 'owner_dashboard' %}">Dashboard</a>
+            {% endif %}
             <a href="{% url 'shop'%}">Shop</a>
             <a href="{% url 'cart'%}">Cart</a>
+
+            {% if request.user.profile.role == "customer" %}
             <a href="{% url 'orders' %}">Orders</a>
-             {% if request.user.profile.role == "owner" %}
-                <a href="{% url 'create_side_owner' %}">
+            {% endif %}
+
+            {% if request.user.profile.role == "owner" %}
+            <a href="{% url 'owner_orders' %}">
+                <i class="fas fa-shopping-cart"></i>
+            All Orders
+            </a>       
+            <a href="{% url 'create_side_owner' %}">
                     Side Owners</a> 
             {% endif %}
+            
         </div>
 
     </div>
