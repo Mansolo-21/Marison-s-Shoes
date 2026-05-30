@@ -195,19 +195,10 @@
     </div>
 
     <div class="nav-right">
-
         {% if user.is_authenticated %}
-
-            {% if user.profile.is_owner or user.profile.is_side_owner %}
-                <a href="{% url 'owner_dashboard' %}" class="dashboard-btn">
-                    Dashboard
-                </a>
-            {% endif %}
-
-<a href="{% url 'account_logout' %}" class="logout-btn">
-    Logout
-</a>
-
+            <a href="{% url 'account_logout' %}" class="logout-btn">
+                Logout
+            </a>
         {% else %}
             
     <a href="{% url 'login' %}">Login</a>

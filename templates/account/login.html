@@ -33,9 +33,28 @@
         <p>
             Login and continue your fashion journey.
         </p>
+{% if messages %}
+<div id="messages-container">
+
+    {% for message in messages %}
+    <div class="message {{ message.tags }}">
+
+        <span>{{ message }}</span>
+
+        <button
+            type="button"
+            class="close-message">
+            &times;
+        </button>
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endif %}
 
         <form method="POST"
-              action="{% url 'account_login' %}">
+              action="{% url 'login' %}">
 
             {% csrf_token %}
 
@@ -95,6 +114,6 @@
     </div>
 
 </div>
-
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

@@ -5,19 +5,16 @@
     box-sizing:border-box;
 }
 
-/* BODY */
-body{
-    font-family:Arial, sans-serif;
-
-    background:#ffffff;
-
-    min-height:100vh;
+/* PAGE */
+.page{
+    width:100%;
+    min-height:calc(100vh - 100px);
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    padding:40px;
+    padding:40px 20px;
 }
 
 /* CARD */
@@ -25,161 +22,90 @@ body{
     width:100%;
     max-width:650px;
 
-    background:#ffffff;
+    background:#fff;
 
     border:1px solid #e5e7eb;
-
     border-radius:28px;
 
     padding:40px;
 
-    box-shadow:
-    0 10px 40px rgba(0,0,0,.08);
+    box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
 
-/* TOP SECTION */
+/* TOP */
 .top{
     margin-bottom:35px;
 }
 
 .top h1{
-    color:#111111;
-
     font-size:36px;
-
-    margin-bottom:10px;
-
     font-weight:800;
+    color:#111;
+    margin-bottom:10px;
 }
 
 .top p{
     color:#6b7280;
-
-    font-size:15px;
 }
 
-/* FORM GROUP */
+/* INPUT GROUP */
 .input-group{
     margin-bottom:24px;
 }
 
-/* LABEL */
 .input-group label{
     display:block;
-
-    color:#111111;
-
     margin-bottom:10px;
-
     font-weight:700;
-
-    font-size:15px;
 }
 
-/* INPUTS */
-.input-group input,
-.input-group textarea,
-.input-group select{
+.input-group input{
     width:100%;
-
     padding:16px 18px;
 
-    background:#ffffff;
-
     border:1px solid #d1d5db;
-
     border-radius:14px;
 
-    color:#111111;
-
     font-size:15px;
+}
 
+.input-group input:focus{
     outline:none;
-
-    transition:.3s;
-}
-
-/* TEXTAREA */
-.input-group textarea{
-    min-height:140px;
-
-    resize:vertical;
-}
-
-/* FOCUS EFFECT */
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus{
     border-color:#d4af37;
 
-    box-shadow:
-    0 0 0 4px rgba(212,175,55,.15);
-}
-
-/* PLACEHOLDER */
-::placeholder{
-    color:#9ca3af;
+    box-shadow:0 0 0 4px rgba(212,175,55,.15);
 }
 
 /* BUTTON */
 button{
     width:100%;
 
-    border:none;
-
-    background:#d4af37;
-
-    color:#111111;
-
     padding:18px;
 
+    border:none;
     border-radius:16px;
 
-    font-size:16px;
+    background:#d4af37;
+    color:#111;
 
+    font-size:16px;
     font-weight:800;
 
     cursor:pointer;
-
-    transition:.3s;
 }
 
-/* BUTTON HOVER */
 button:hover{
-    transform:translateY(-3px);
-
     background:#c49b1f;
-
-    box-shadow:
-    0 15px 30px rgba(212,175,55,.25);
-}
-
-/* IMAGE INPUT */
-input[type="file"]{
-    padding:14px;
-}
-
-/* PRICE + STOCK GRID */
-.row{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:20px;
 }
 
 /* MOBILE */
 @media(max-width:700px){
 
     .card{
-        padding:28px;
+        padding:25px;
     }
 
     .top h1{
         font-size:28px;
-    }
-
-    .row{
-        grid-template-columns:1fr;
     }
 }
