@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/shop.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
     <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    
    
     <style>
         body {
@@ -199,13 +201,12 @@
 
             {% if request.user.profile.role == "owner" %}
             <a href="{% url 'owner_orders' %}">
-                <i class="fas fa-shopping-cart"></i>
             All Orders
             </a>       
             <a href="{% url 'create_side_owner' %}">
                     Side Owners</a> 
             {% endif %}
-            
+
         </div>
 
     </div>

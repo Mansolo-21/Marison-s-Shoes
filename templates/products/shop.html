@@ -9,24 +9,21 @@
     <h1>Shop</h1>
     <p>Browse our latest collection and find your perfect style</p>
 </div>
- {% if request.user.is_authenticated %}
+{% if request.user.is_authenticated %}
 
-    {% if request.user.role == 'owner' or request.user.role == 'side_owner' %}
+    {% if request.user.profile.role == 'owner' or request.user.profile.role == 'side_owner' %}
 
-    <div class="add-product-wrapper">
+        <div class="add-product-wrapper">
 
-        <a href="{% url 'add_product' %}" class="add-product-btn">
+            <a href="{% url 'add_product' %}" class="add-product-btn">
+                + Add Product
+            </a>
 
-            + Add Product
-
-        </a>
-
-    </div>
+        </div>
 
     {% endif %}
 
 {% endif %}
-<p>{{ request.user.role }}</p>
     <div class="shop-grid">
 
         {% for product in products %}
